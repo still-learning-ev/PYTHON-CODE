@@ -90,8 +90,51 @@ class LinkList:
 
 
     def del_node_at_index(self):
-        pass
+        input_link_list, size = self.create_link_list()
+        if size == 1:
+            print("Became empty")
+            return None
+        index = int(input("Enter the index of element to delete"))
+        if index == 0:
+            # Delete head
+            head = self._del_head(input_link_list)
+            self.print_list(head)
+        elif index == size-1 or index == -1:
+            head = self._del_last_node(input_link_list)
+            self.print_list(head)
+        else:
+            head = self._del_node_between(input_link_list, index)
+            self.print_list(head)
 
+
+    def _del_head(self, head):
+        prev = head
+        head = head.next
+        prev.next = None
+        return head
+
+
+    def _del_last_node(self, head):
+        temp = head
+
+        while not temp.next is None:
+            prev = temp
+            temp = temp.next
+
+        prev.next = None
+        return head
+
+
+    def _del_node_between(self, head, index):
+        temp = head
+
+        for i in range(index):
+            prev = temp
+            temp = temp.next
+            current = temp.next
+        prev.next = current
+
+        return head
 
     def print_list(self, head):
         temp = head
