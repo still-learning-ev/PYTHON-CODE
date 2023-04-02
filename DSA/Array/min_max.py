@@ -1,13 +1,15 @@
-def get_input():
-    arr_string = input("Enter array space seperated ")
-    arr = arr_string.strip().split(" ")
-    arr = list(map(int, arr))
-    return arr
+class Input:
+    def get_input(self):
+        arr_string = input("Enter array space seperated ")
+        arr = arr_string.strip().split(" ")
+        arr = list(map(int, arr))
+        return arr
 
 
 def find_min_in_array():
     # built in function min(arr)
-    arr = get_input()
+    obj = Input()
+    arr = obj.get_input()
     max = float('-inf')
     for i in arr:
         if max< i:
@@ -16,12 +18,14 @@ def find_min_in_array():
 
 
 def find_max_in_array():
-    arr = get_input()
+    obj = Input()
+    arr = obj.get_input()
     min = float('inf')
     for i in arr:
         if min > i:
             min = i
     print(min)
 
-find_min_in_array()
-find_max_in_array()
+if __name__ == "__main__":
+    find_min_in_array()
+    find_max_in_array()
