@@ -31,6 +31,8 @@ class ApproachTwo:
         self.second_small = float('inf')
 
     def find_second_min(self):
+        if len(self.arr)<2:
+            return -1
         for i in self.arr:
             if i > self.large:
                 self.second_large = self.large
@@ -42,6 +44,8 @@ class ApproachTwo:
         return self.second_large
     
     def find_second_max(self):
+        if len(self.arr)<2:
+            return -1
         for i in self.arr:
             if i < self.small:
                 self.second_small = self.small
