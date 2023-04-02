@@ -175,6 +175,5 @@ class LinkList:
 
 
 if __name__=="__main__":
-    obj = LinkList()
-    # obj.create_link_list()    
+    obj = LinkList()    
     obj.main()
